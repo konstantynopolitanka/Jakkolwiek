@@ -9,7 +9,7 @@ STATE = {'value': 0}
 
 USERS = set()
 
-MESSAGE = {'text': "Nieśmieszne"}
+MESSAGE = {'text': ""}
 
 def state_event():
     return json.dumps({'type': 'state', **STATE})
@@ -33,7 +33,10 @@ async def notify_users():
 async def notify_message():
     if USERS:       # asyncio.wait doesn't accept an empty list
         message = message_event()
+        print(message)
         await asyncio.wait([user.send(message) for user in USERS])
+        print("Total antisemitism")
+
 
 async def register(websocket):
     USERS.add(websocket)
@@ -49,8 +52,11 @@ async def counter(websocket, path):
     try:
         await websocket.send(state_event())
         async for message in websocket:
+            print("DATA to chuj")
             data = json.loads(message)
-            MESSAGE['text'] = data['message']
+            print(data.keys())
+            # if data is empty throws invalid keystroke error
+            MESSAGE['text'] = data["message"]
             await notify_message()
             # if data['action'] == 'minus':
             #     STATE['value'] -= 1

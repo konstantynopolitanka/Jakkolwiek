@@ -1,5 +1,7 @@
 # Jakkolwiek
 
+![Oreł1](https://thumbs.gfycat.com/AbsoluteHarmlessGuillemot-size_restricted.gif)
+
 ## jakkolwiek I
  «wszystko jedno w jaki sposób»
 ## jakkolwiek II
